@@ -1,0 +1,2 @@
+Diseñe, e implemente en Java o Haskell, un algoritmo que elimine elementos repetidos de una lista.
+Argumente sobre la complejidad en peor caso de su algoritmo.

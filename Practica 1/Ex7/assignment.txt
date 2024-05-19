@@ -1,0 +1,10 @@
+Escriba programas en Java y Haskell que calculen 
+	todas las permutaciones de una lista, 
+	todos los subconjuntos de un conjunto, 
+     y todas las sublistas de una lista. 
+Utilizando estas rutinas, resuelva los siguientes problemas:
+
+• Decidir si dos secuencias son anagramas.
+• Dado un conjunto s y un valor n, decidir si existe un subconjunto de s cuya suma sea n.
+• Dadas dos cadenas p y s, decida si p es subcadena de s.
+• Dadas dos cadenas p y s, decida si p es subsecuencia de s (los elementos no necesariamente tienen que aparecer contiguos en s).
