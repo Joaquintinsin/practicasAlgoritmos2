@@ -1,6 +1,7 @@
 package main;
 
 import java.nio.charset.Charset;
+import java.util.Arrays;
 
 /**
  * Brute force cracker for keyed Caesar encoding.
@@ -178,7 +179,26 @@ public class CaesarCracker {
      * @return the message decoded with the provided key.
      */
     public static String decode(final String message, final int[] key) {
-        throw new UnsupportedOperationException("method not yet implemented");
+      if (message == null) throw new IllegalArgumentException("message can't be null");
+      if (key == null || key.length == 0) throw new IllegalArgumentException("key can't be null nor empty");
+      //~ String result = "";
+      //~ int charDecode = 0;
+      //~ int indexKey = 0;
+      //~ for (int i = 0 ; i < message.length() ; i++) {
+        //~ charDecode = ((int) message.charAt(i)) % NUMCODES;
+        //~ charDecode = (key[indexKey] - charDecode) % NUMCODES;
+        //~ result = result + (char) charDecode;
+        //~ indexKey = (indexKey + 1) % key.length;
+      //~ }
+      //~ return result;
+      StringBuilder result = new StringBuilder();
+      for (int i = 0; i < message.length(); i++) {
+        int charCode = message.charAt(i);
+        int keyIndex = i % key.length;
+        int decodedCode = (charCode - key[keyIndex] + NUMCODES) % NUMCODES;
+        result.append((char) decodedCode);
+      }
+      return result.toString();
     }
 
     /**
@@ -188,15 +208,44 @@ public class CaesarCracker {
      * @return true iff brute force decryption succeeded.
      */
     public final boolean bruteForceDecrypt() {
-      if (encryptedMessage == null) throw new UnsupportedOperationException("encryptedMessage can't be null'");
-      if (messageWord == null) throw new UnsupportedOperationException("messageWord can't be null'");
-      String result = "";
-      int charDecode = 0;
-      for (int i = 0 ; i < encryptedMessage.length() ; i++) {
-        charDecode = ((int) encryptedMessage.charAt(i) - charDecode) % NUMCODES;
-        result = charDecode + result;
+      int[] inventedKey = new int[passwordLength];  // Inventa una llave para desencriptar
+      Arrays.fill(inventedKey, 0);  // Llena el arreglo con ceros
+      while (true) {
+        StringBuilder result = new StringBuilder(); // Inicialización de la cadena resultado
+        for (int i = 0 ; i < encryptedMessage.length() ; i++) {
+          int charCode = encryptedMessage.charAt(i);  // Número ascii del caracter capturado del mensaje encriptado
+          int keyIndex = i % inventedKey.length;  // El índice de la llave tiene módulo la longitud de la llave, haciendo que cuando termina la longitud vuelve a empezar
+          int decodedCode = (charCode - inventedKey[keyIndex] + NUMCODES) % NUMCODES; // Transforma un caracter "decodificado" a su numero ascii correspondiente
+          result.append((char) decodedCode);  // Agrega el caracter obtenido a la string resultado
+          // Si la cadena resultante es igual al mensaje (original sin codificar) el método termina y actualiza el atributo foundKey
+          if (result.toString().equals(messageWord)) {
+            foundKey = Arrays.copyOf(inventedKey, inventedKey.length);  // Actualiza el atributo con la llave inventada y su longitud
+            return true;  // La cadena resultante y el mensaje coinciden
+          }
+        }
+        // Flag del ciclo while, se inicializa true si se terminó el for anterior (que tiene como funcion principal armar la cadena resultante)
+        // La idea del ciclo es probar todas las combinaciones posibles de claves:
+        // Si el inventedKey[i] llegó al final del código ascii, lo pone en 0 para volver a empezar, así con toda la longitud del inventedKey
+        boolean endOfAscii = true;
+        for (int i = inventedKey.length - 1 ; i >= 0 ; i--) {
+          if (endOfAscii) {
+            inventedKey[i]++;
+            if (inventedKey[i] == NUMCODES) {
+              inventedKey[i] = 0;
+            } else {
+              endOfAscii = false;
+            }
+          }
+        }
+        // Cuando ya no se pueda entrar al for, también se termina el while grande (inventedKey.length deberia dar 0)
+        // y entonces endOfAscii va a quedar en true, provocando el break de abajo.
+        if (endOfAscii) {
+          break;
+        }
       }
-      return (result == messageWord);
+      // Como se salió enteramente del while y no se pudo devolver una cadena que sea igual al mensaje, seteamos en null foundKey y retornamos false.
+      foundKey = null;
+      return false;
     }
 
     /**
