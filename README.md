@@ -1,7 +1,7 @@
 # practicasAlgoritmosII
 Mi repositorio para la materia Algoritmos 2 / Diseño de Algoritmos
 Universidad Nacional de Río Cuarto
-Año 2024
+Años 2024 y 2025
 
 # Quid novi
 Archivos de Java y Haskell que principalmente corresponderán a las prácticas dadas en clase.
@@ -12,7 +12,9 @@ Por lo tanto, es posible compilarlos, correrlos y/o testearlos via Maven:
 
 Pararse vía terminal en donde se encuentre el archivo <b>pom.xml</b>
 
-En caso que haya un método main, ejecutar mediante mvn exec:java -Dexec.mainClass=<b><paquete></b>.<b><Clase principal></b>
+En caso que haya un método main, ejecutar mediante mvn exec:java -Dexec.mainClass= <b>\<paquete\></b>.<b>\<Clase principal\></b>
+
+Si hay tests provistos, correrlos mediante <b>mvn test</b>
 
 Para Windows agregar 'c antes de exec <i>(Creo)</i>.
 
