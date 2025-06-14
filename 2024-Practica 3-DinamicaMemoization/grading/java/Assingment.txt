@@ -1,0 +1,17 @@
+6. En un examen de Historia, se pide a los alumnos que ordenen un conjunto de eventos en orden cronológico. 
+Decidir si el orden en una solución de un estudiante es el correcto es simple: 
+	sólo hay que compararlo con la solución correcta provista por el profesor, y comprobar si coinciden.
+Para los alumnos que no ordenaron todos los eventos correctamente, el profesor quiere darles un
+puntaje menor al del ejercicio correcto, pero que “crezca” a medida que la solución más se acerque a la solución correcta. 
+
+Propone entonces dar como puntaje la longitud más larga de eventos cuyo órden relativo es el correcto. 
+Por ejemplo, si los eventos ordenados correctamente son [1, 2, 3, 4] y la solución del alumno es [1, 3, 2, 4], 
+entonces el puntaje obtenido es 3 (las secuencias [1, 2, 4] y [1, 3, 4] son las dos secuencias más largas de eventos cuyo orden relativo es el correcto).
+
+Implemente, usando Java o Haskell, un algoritmo que resuelva este problema. 
+La entrada del algoritmo será una secuencia de n números enteros positivos, sin repetidos y con valores entre 1 y n, 
+que representa la solución provista por el alumno. 
+
+La solución correcta es esa misma secuencia, ordenada.
+
+Es su solución polinomial? Justifique

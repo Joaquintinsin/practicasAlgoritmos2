@@ -1,0 +1,35 @@
+2. En los casos en que sea posible, aplicar el Teorema Maestro, para decidir cuál es la tasa de crecimiento de las siguientes ecuaciones de recurrencia:
+    1) T (1) = 1; T (n) = 4*T(n/2) + n
+        a = 4 ; b = 2 ; u = 1
+        Si (a > b^u) entonces 
+            T(n) e Tita(n^(log_b(a)))
+        Luego, T(n) es de orden (n^log_2 (4)) == (n^2) (cuadrático)
+    
+    2) T (1) = 1; T (n) = 4*T(n/2) + n^2
+        a = 4 ; b = 2 ; u = 2
+        Si (a > b^u) entonces 
+            T(n) e Tita(n^(log_b(a)))
+        Luego, T(n) es de orden (n^log_2 (4)) == (n^2) (cuadrático)
+    
+    3) T (1) = 1; T (n) = T(n/2) + 1
+        a = 1 ; b = 2 ; u = 0
+        Si (a = b^u)
+	        entonces T(n) e Tita((n^u) * log_b(n))
+        Luego, T(n) es de orden ((n^0) * log_2(n)) == (log_2 (n)) == (log n)
+    
+    4) T (1) = 1; T (n) = 2*T(n − 1) + 2n
+        a = 2 ; b = 1 ; u = 1
+        No se puede aplicar porque (n-1)/b y b = 1. El teorema pide que b > 1
+    
+    5) T (1) = 1; T (n) = T(n/2) + 2^n
+        a = 1 ; b = 2 ; u = 1
+        Si (a < b^u) 
+	        entonces T(n) e Tita(n^u)
+        Luego, T(n) es de orden (n^1) == n (lineal)
+
+    6) T (1) = 1; T (n) = 2*T(n/2) + log n
+        a = 2 ; b = 2 ; u = 1
+        Si (a = b^u)
+	        entonces T(n) e Tita((n^u) * log_b(n))
+        Luego, T(n) es de orden ((n^1) * log_2(n)) == (n * log n) (n log n)
+

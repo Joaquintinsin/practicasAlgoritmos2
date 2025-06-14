@@ -1,0 +1,20 @@
+Dado un arreglo A[0..n-1] de números reales distintos, llamaremos inversión a un par de valores
+(A[i],A[j]) almacenados en el arreglo tales que A[i] > A[j], con i < j.
+
+Diseñe, utilizando Divide & Conquer, un algoritmo que calcule el número de inversiones en un arreglo dado.
+Calcule el tiempo de ejecución en el peor caso de su algoritmo, e impleméntelo en Java.
+
+inversion [0,1,2,3,4] == 0
+
+inversion [4,3,2,1,0] == 10
+	(4,3)
+	(4,2)
+	(4,1)
+	(4,0)
+	(3,2)
+	(3,1)
+	(3,0)
+	(2,1)
+	(2,0)
+	(1,0)
+

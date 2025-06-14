@@ -1,0 +1,61 @@
+Pide Bottom-up : Progr Din
+Pide Top-down : Memoization
+
+mas memoria en el programa pero hacemos que tarde menos
+memoizacion se aplica en algoritmos top-down (recursivos)
+	tomar el algoritmo recursivo y agregar un arreglo (como un cache) para que busquemos un valor guardado y lo utilicemos donde necesitemos
+	si no se encuentra un valor, se calcula y se guarda para despues utilizarlo. se utiliza un arreglo, un hash, un map, diccionario
+tabulacion se aplica en algoritmos botton-up (iterativos)
+	resolvemos ls subproblemas del mas pequeño al mas gande de manera iterativa contruyendo la tabla con los resultados y utilizandolso a la vez
+	creamos un arreglo de resultados pero ahora calculamos el valor optimo para cada tamaño de varilla desde 1 hasta n
+	por cada tamaño de la varilla buscamos el valor maximo comparando todos los posibles cortes, pero en lugar de recursar solamente tomamos el valor de la tabla de resultados
+	el valor esta en la tabla porque tenemos los valores mas pequeños ya guardados
+si pensamos mejor iterativamente: tabulacion, si pensamos mejor recursivamente memoizacion
+
+1) en comun tecnicas constructivas: una estructura particular
+	cambia el orden de computo de lo que tengo con divide por recursion
+	diferencias en cuándo aplicar progr dinamica. si tengo una recursividad hay progr dinamica
+		tener sentido sobre lo que lo estoy aplicando si tengo el "solapamiento":
+			una misma solucion calculada mas de una vez (si se repite) - primera y principal
+			fibonacci: fib 5 = fib 4 y fib 3 -- fib 4 = fib 3 y fib 2 -(ya se repite fib3)-
+			cuantos subproblemas tengo para el problema dado: 2^n (subproblemas distintos = 4)
+			si hay mucha cantidad de subproblemas distintos, no me sirve la progr dinamica
+	la técnica no tiene más que eso: que haya subproblemas para resolver y que se repitan
+	tengo la solucion y voy a ver como hago los calculos de los subproblemas
+	cómo lleno esa estructura que elijo para ir guardando los calculos parciales (depende del problema que tengo, por lo tanto no es tan trivial)
+	
+	viene a mejorar divide and conquer
+	agarrar esa solucion que recomputa muchas veces algo y mejorarlo: inviertiendo el orden de computo
+	programacion dinamica en algoritmos de optimizacion de cosas: que al dividir el problema, busquemos maximizaciones de los subproblemas
+	ejemplo de la varilla, que cortamos una varilla y vendemos las partes cortadas: cual es la mejor forma de cortar esa varilla para obtener la maxima ganancia
+
+	guardar valores previos para luego reutilizarlos
+	4 pasos
+	1- 	describir estructura de la solucion optima
+	2- 	definir de forma recursiva el valor de esa solucion optima (construyendo el algoritmo recursivo)
+	3- 	calcular el valor optimo utilizando programacion dinamica (memoria -> valores previos)
+	4- 	(opcional) calcular la solucion depende de lo que queramos hacer
+	los primeros tres son la base de la programacion dinamica
+
+2) no siempre se puede llegar a una solucion en base a progr dinamica porque no siempre hay solapamiento y cant distinta de subproblmas menor a polinomial
+
+3)
+
+4) estilo de fibonacci, pero hay una sumatoria (ejercicio de parcial)
+	catalan 0 = 1
+	catalan 7 = 429
+	catalan 19 = 1767263190
+
+	pensar en una estructura para ir guardando
+	que valor necesito tener calculado para poder calcular el que estoy calculando
+
+5) ABC
+	asociar de una manera o asociar de otra
+	A=10x30
+	B=30x5
+	C=5x60
+
+	A(BC)		= (30x5x60) + (10x30x60) = 27000
+	(AB)C		= (10x30x5) + (10x5x60) = 4500
+
+

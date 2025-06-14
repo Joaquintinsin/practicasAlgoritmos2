@@ -1,0 +1,26 @@
+si la ecuacion de recurrencia tiene una forma particular;
+T(1) = 1
+T(n) = a*T(n/b) + d(n)
+	a = cant de subproblemas que se divide el problema 
+		(mayor o igual a 1) 
+		(mas de un subproblema : se pueda dividir)
+	b = el tamaño de los subproblemas 
+		(mayor estricto que 1) 
+		(debe poder dividirse la entrada si o si)
+	d(n) = lo que tarda el split y el join 
+		(tiene que ser polinomial: se pueda calcular) 
+		(que no dependa del valor de entrada) 
+		(no puede estar involucrada n en su tiempo de recurrencia)
+Teorema maestro:
+Bajo las premisas
+	· a >= 1
+	· b > 1
+	· Sea {n^u , u != n} ^ {d(n) = x*(n^u), para todo x e Real}
+Si (a < b^u) 
+	entonces T(n) e Tita(n^u)
+Si (a = b^u)
+	entonces T(n) e Tita((n^u) * log_b(n))
+Si (a > b^u)
+	entonces T(n) e Tita(n^(log_b(a)))
+
+lo usamos para no hacer las cuentas de recurrencia; sino que ya vamos a saber qué tiempo tiene.

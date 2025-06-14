@@ -1,0 +1,50 @@
+3. A cuáles de estas ecuaciones de recurrencia es posible aplicar el Teorema Maestro?
+	a) T (n) = 4*T(n/2) + n
+		a = 4 ; b = 2 ; u = 1
+		Bien la condicion del a (a>=1)
+		Bien la condicion del b (b>1)
+		Bien la condicion de d(n) (d(n)=x*(n^u) & u !=n)
+		Se puede aplicar el teorema maestro
+			(a > b^u) --> T(n) pertenece Tita(n^(log_2(4))) == Tita(n^2)
+	b) T (n) = 4*T(n/2) + n^2
+		a = 4 ; b = 2 ; u = 2
+		Bien la condicion del a (a>=1)
+		Bien la condicion del b (b>1)
+		Bien la condicion de d(n) (d(n)=x*(n^u) & u !=n)
+		Se puede aplicar el teorema maestro
+			(a = b^u) --> T(n) pertenece Tita((n^2) * log_2(n)) == Tita (n^2)
+	c) T (n) = 4*T(n/2) + n^3
+		a = 4 ; b = 2 ; u = 3
+		Bien la condicion del a (a>=1)
+		Bien la condicion del b (b>1)
+		Bien la condicion de d(n) (d(n)=x*(n^u) & u !=n)
+		Se puede aplicar el teorema maestro
+			(a < b^u) --> T(n) pertenece Tita(n^3)
+	d) T (n) = 4*T(n/2) + 2^n
+		a = 4 ; b = 2 ; u = n
+		Bien la condicion del a (a>=1)
+		Bien la condicion del b (b>1)
+		Mal la condicion de d(n) (d(n)=x*(n^u) & u !=n)
+		No se puede aplicar el teorema maestro
+			(u != n) --> la funcion auxiliar tiene que tener tiempo de recurrencia polinomial, no exponencial
+	e) T (n) = 4*T(n − 2) + n
+		a = 4 ; b = 1 ; u = 1
+		Bien la condicion del a (a>=1)
+		Mal la condicion del b (b>1)
+		Bien la condicion de d(n) (d(n)=x*(n^u) & u !=n)
+		No se puede aplicar el teorema maestro
+			(b>1) --> la funcion de recurrencia tiene que poder dividir la entrada
+	f) T (n) = 4*T(n − 1) + n^2
+		a = 4 ; b = 1 ; u = 2
+		Bien la condicion del a (a>=1)
+		Mal la condicion del b (b>1)
+		Bien la condicion de d(n) (d(n)=x*(n^u) & u !=n)
+		No se puede aplicar el teorema maestro
+			(b>1) --> la funcion de recurrencia tiene que poder dividir la entrada
+	g) T (n) = 4*T(n − 4) + 1
+		a = 4 ; b = 1 ; u = 0
+		Bien la condicion del a (a>=1)
+		Mal la condicion del b (b>1)
+		Bien la condicion de d(n) (d(n)=x*(n^u) & u !=n)
+		No se puede aplicar el teorema maestro
+			(b>1) --> la funcion de recurrencia tiene que poder dividir la entrada
