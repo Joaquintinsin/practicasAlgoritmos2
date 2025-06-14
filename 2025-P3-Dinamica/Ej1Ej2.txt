@@ -1,0 +1,29 @@
+1)
+    divide and conquer y decrease and conquer similares:
+        dividen el subproblema en problemas mas chicos
+
+    divide and conquer y programacion dinamica similares:
+        programacion dinamica necesita una solucion divide and conquer para aplicarse
+
+    diferencias divide y decrease:
+        divide pide que los subproblemas sean del mismo tipo
+        decrease solamente resuelve sobre problemas de menor tamaño
+
+    diferencia programacion dinamica y divide y decrease:
+        programacion dinamica va a ir almacenando resultados parciales en espacio extra
+        programacion dinamica siempre es bottom-up y divide y decrease suelen ser top-down
+
+2)
+    tiene que tener solapamiento y ser ineficiente en cuanto a tiempo
+    el solapamiento es exponencial entonces no podes guardarlo en una estructura polinomial
+
+    en que estructura guardar
+    usaba el agus como regla
+    ver en las llamadas recursivas, ver cuantos argumentos que cambian toma la llamada recursiva
+    esa llamada recursiva toma n y m
+    toma dos parametros, entonces me da un indicio que es una matriz
+    dos indices para la matriz
+    si hay uno solo, da la sensacion que es un arreglo
+
+
+

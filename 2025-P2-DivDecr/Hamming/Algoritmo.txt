@@ -1,0 +1,38 @@
+ITERATIVO
+
+Entradas:
+  string1
+  string2
+Salida:
+  MaximaDistanciaHammingEntreString1yString2
+
+acum = 0
+Si string1.length != string2.length entonces
+  error "Distintas longitudes entre las cadenas"
+Fsi
+Para (i = 0; i < string1.length; i++):
+  Si (string1[i] != string2[i]) entonces
+    acum++
+  Fsi
+Fsi
+MaximaDistanciaHammingEntreString1yString2 = acum
+
+return MaximaDistanciaHammingEntreString1yString2
+
+
+RECURSIVO
+
+Llamada: Hamming str1 str2 0
+
+Hamming String1 String2 acum
+
+Caso base
+  [] [] = acum
+
+Inductivo
+  headString1 = head(String1)
+  headString2 = head(String2)
+  if (headString1 != headString2):
+    acum += 1
+  Hamming (String1 - head(String1)) (String2 - head(String2)) acum
+

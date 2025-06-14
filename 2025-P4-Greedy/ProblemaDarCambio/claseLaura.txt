@@ -1,0 +1,73 @@
+1)
+no hay infinitas monedas, hay una cantidad de monedas finita
+
+no siempre la recursividad resuelve este problema con monedas finitas, no dan la mejor solucion
+
+al dise;ar el arreglo de las monedas podemos ponerle una cantidad a cada moneda
+
+[(moneda, cant), ...]
+
+
+2)
+mochila greedy
+
+3)
+coloreo grafos
+
+4)
+vinos greedy
+solo el de la der o el de la izq
+me quedo siempre con el mas caro para el ultimo
+
+no es tan intuitivo decir que una solucion greedy no funciona para todos los casos
+no tiene mucho sentido elegir el vino barato
+si siempre con el paso del tiempo el vino va siendo mas caro, da la sensacion que el greedy
+da siempre la mejor solucion
+
+restriccion del problema que te hace probar todos los casos:
+    precios 3 5 7 2 6
+    a;os 1 2 3 4 5
+
+    solucion optima = 76
+    1. vender el 3
+        3 * 1 + 0 = 3
+    2. vender el 6
+        6 * 2 + 3 = 15
+    3. vender el 2
+        2 * 3 + 15 = 21
+    4. vender el 5
+        5 * 4 + 21 = 41
+    5. vender el 7
+        7 * 5 + 41 = 76
+
+    con dinamica si dio 76
+
+    ahora con greedy:
+    1. vender el 3
+        3 * 1 + 0 = 3
+    2. vender el 5
+        5 * 2 + 3 = 13
+    3. vender el 6
+        6 * 3 + 13 = 31
+    4. vender el 2
+        2 * 4 + 31 = 39
+    5. vender el 7
+        7 * 5 + 39 = 74
+
+    con greedy dio 74, menos que la exacta
+
+no estan ordenados entonces no sabes lo que hay en el medio, lo que viene despues
+
+en un instante del problema, elijo la mejor solucion en ese punto.
+
+5)
+cada sitio tiene una prioridad
+
+6)
+policias y ladrones
+    restricciones
+        cada policia puede capturar un solo ladron
+        ...
+        
+
+

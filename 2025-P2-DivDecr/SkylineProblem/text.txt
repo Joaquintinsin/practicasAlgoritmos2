@@ -1,0 +1,5 @@
+caso base:
+    1 solo edificio
+        punto donde sube y donde baja
+
+ordenar coordenada x
